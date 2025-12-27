@@ -1,7 +1,7 @@
 "use client";
 import { MotionValue, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Home, Folder, User, Mail, Github } from "lucide-react";
+import { Home, Folder, User, Mail, Github, Zap } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -17,9 +17,9 @@ export function FloatingDock() {
       {[
         { icon: Home, label: "Home", href: "#" },
         { icon: Folder, label: "Projects", href: "#projects" },
+        { icon: Zap, label: "Arsenal", href: "#arsenal" },
         { icon: User, label: "About", href: "#about" },
         { icon: Github, label: "GitHub", href: "https://github.com" },
-        { icon: Mail, label: "Contact", href: "mailto:hello@example.com" },
       ].map((item, i) => (
         <DockIcon key={i} mouseX={mouseX} icon={item.icon} href={item.href} />
       ))}
