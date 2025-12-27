@@ -22,10 +22,10 @@ export function About() {
             </h2>
             <div className="space-y-6 text-lg text-zinc-400 leading-relaxed font-light">
                <p>
-                 I’m Harshal. I turn coffee into code and vague ideas into shipping products. I treat AI like a junior developer—brilliant, fast, but needs constant supervision.
+                 I don&apos;t just prompt; I orchestrate. My workflow starts with Gemini for the blueprint, moves to Antigravity for the heavy agentic lifting, and finishes in VS Code for the fine-tuning. This isn&apos;t just &apos;AI-generated&apos;—it&apos;s &apos;AI-Architected&apos;.
                </p>
                <p>
-                 I believe the future isn't AI replacing developers—it's developers wielding AI like a superpower. This portfolio is a transparent experiment in that collaboration. Every project here was prompted by me, refined by me, and deployed by me. The robots just did the heavy lifting.
+                 I believe the future isn&apos;t AI replacing developers—it&apos;s developers wielding AI like a superpower. This portfolio is a transparent experiment in that collaboration. Every project here was prompted by me, refined by me, and deployed by me. The robots just did the heavy lifting.
                </p>
             </div>
         </motion.div>

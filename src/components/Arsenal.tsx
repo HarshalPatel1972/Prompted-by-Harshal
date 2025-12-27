@@ -1,36 +1,29 @@
 "use client";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Zap, MessageSquare, Rocket, Box } from "lucide-react";
+import { Zap, MessageSquare, Rocket, Box, Brain, Terminal } from "lucide-react";
 import { MouseEvent } from "react";
 
 const tools = [
   {
-    name: "GitHub Copilot",
-    role: "The Speedster",
-    desc: "Predicts my next move before I do. Sometimes wrong, usually fast.",
-    icon: Zap,
-    color: "from-blue-500 to-cyan-500"
+    name: "Google Gemini",
+    role: "The Strategist",
+    desc: "My dedicated brainstorming partner. We argue about architecture for hours before I write a single line of code.",
+    icon: Brain,
+    color: "from-yellow-400 to-orange-500"
   },
   {
-    name: "ChatGPT / Gemini",
-    role: "The Consultant",
-    desc: "My rubber duck for debugging and complex logic planning.",
-    icon: MessageSquare,
-    color: "from-emerald-500 to-green-500"
-  },
-  {
-    name: "Antigravity",
-    role: "The Specialist",
-    desc: "For when standard physics don't apply to the DOM.",
+    name: "Google Antigravity",
+    role: "The Heavy Lifter",
+    desc: "Google's agent-first IDE. I give it a mission, and it manages the agents to build, browse, and test the app autonomously.",
     icon: Rocket,
-    color: "from-purple-500 to-pink-500"
+    color: "from-blue-500 via-red-500 to-yellow-500" 
   },
   {
-    name: "V0 / Cursor",
-    role: "The Architect",
-    desc: "Drafts the blueprints so I can focus on the interior design.",
-    icon: Box,
-    color: "from-orange-500 to-red-500"
+    name: "VS Code + Copilot",
+    role: "The Tactician",
+    desc: "The daily driver. Perfect for quick logic and autocomplete when I need to take the wheel personally.",
+    icon: Terminal,
+    color: "from-blue-600 to-cyan-500"
   }
 ];
 
@@ -76,7 +69,18 @@ function ToolCard({ tool, index }: { tool: typeof tools[0]; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       onMouseMove={handleMouseMove}
-      className="group relative rounded-3xl border border-white/10 bg-zinc-900/50 p-6 overflow-hidden"
+      className={`group relative rounded-3xl border bg-zinc-900/50 p-6 overflow-hidden transition-all duration-300 ${
+        tool.name === "Google Antigravity" 
+          ? "border-transparent bg-clip-padding" // We'll simulate gradient border with a pseudo element or cleaner way? Let's use simple border-color change for now as Tailwind inline
+          : "border-white/10"
+      } ${tool.name === "Google Antigravity" ? "shadow-lg shadow-blue-500/10" : ""}`}
+      style={
+        tool.name === "Google Antigravity" ? {
+           borderImage: "linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853) 1",
+           borderWidth: "1px",
+           borderStyle: "solid"
+        } : {}
+      }
     >
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100 z-10"
