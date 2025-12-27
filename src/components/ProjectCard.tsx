@@ -7,8 +7,18 @@ import { cn } from "@/lib/utils";
 
 const ROTATION_RANGE = 15; // Decreased for subtlety
 
-export function ProjectCard({ project, className }: { project: Project; className?: string }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+export function ProjectCard({ 
+  project, 
+  className, 
+  onClick,
+  layoutId
+}: { 
+  project: Project; 
+  className?: string; 
+  onClick?: () => void;
+  layoutId?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
 
   // Tilt State
   const x = useMotionValue(0);
@@ -22,7 +32,7 @@ export function ProjectCard({ project, className }: { project: Project; classNam
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
@@ -49,11 +59,10 @@ export function ProjectCard({ project, className }: { project: Project; classNam
   };
 
   return (
-    <motion.a
-      href={project.link}
-      target="_blank" 
-      rel="noopener noreferrer"
+    <motion.div
+      layoutId={layoutId}
       ref={ref}
+      onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -61,7 +70,7 @@ export function ProjectCard({ project, className }: { project: Project; classNam
         transform,
       }}
       className={cn(
-        "relative group block h-80 w-full rounded-2xl bg-zinc-900/40 border border-white/10 overflow-hidden",
+        "relative group block h-80 w-full rounded-2xl bg-zinc-900/40 border border-white/10 overflow-hidden cursor-pointer",
         "hover:shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-500",
         className
       )}
@@ -106,14 +115,20 @@ export function ProjectCard({ project, className }: { project: Project; classNam
 
         {/* Bottom Left Text */}
         <div style={{ transform: "translateZ(75px)" }}> 
-          <h3 className="text-3xl font-bold text-white font-serif mb-2 group-hover:text-purple-200 transition-colors">
+          <motion.h3 
+            layoutId={`title-${project.id}`}
+            className="text-3xl font-bold text-white font-serif mb-2 group-hover:text-purple-200 transition-colors"
+          >
             {project.title}
-          </h3>
-          <p className="text-sm md:text-base text-zinc-300 font-sans font-light italic opacity-90 leading-relaxed border-l-2 border-purple-500/50 pl-3">
+          </motion.h3>
+          <motion.p 
+             layoutId={`tagline-${project.id}`}
+             className="text-sm md:text-base text-zinc-300 font-sans font-light italic opacity-90 leading-relaxed border-l-2 border-purple-500/50 pl-3"
+          >
              {project.tagline}
-          </p>
+          </motion.p>
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
