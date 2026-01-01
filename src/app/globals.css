@@ -1,18 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Default to dark mode colors since user wants Dark mode default */
-  --background: #050505;
-  --foreground: #ededed;
+  /* New 2026 Deep Slate & Obsidian Palette */
+  --background: #000205;
+  --foreground: #f8fafc;
   
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --card-hover: rgba(255, 255, 255, 0.08);
+  --accent-primary: #3b82f6; /* Electric Blue */
+  --accent-secondary: #fcd34d; /* Soft Gold */
+  
+  --card-bg: rgba(15, 23, 42, 0.4);
+  --card-border: rgba(148, 163, 184, 0.1);
+  --card-hover: rgba(59, 130, 246, 0.1);
+
+  --font-inter: 'Inter Tight', sans-serif;
+  --font-playfair: 'Outfit', sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
   
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
@@ -21,6 +29,7 @@
   --color-card-border: var(--card-border);
   --color-card-hover: var(--card-hover);
 }
+
 
 body {
   background: var(--background);
