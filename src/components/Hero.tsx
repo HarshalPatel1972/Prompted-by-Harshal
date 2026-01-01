@@ -16,20 +16,21 @@ export function Hero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="z-10 max-w-4xl"
       >
-        <h1 className="text-4xl md:text-7xl font-serif font-bold tracking-tight mb-4">
-          <span className="block text-foreground/80 text-xl md:text-2xl font-sans font-normal tracking-widest uppercase mb-4 opacity-70">
-            The Meta-Portfolio
+        <h1 className="text-5xl md:text-8xl font-serif font-black tracking-tighter mb-4">
+          <span className="block text-accent-primary text-xl md:text-2xl font-sans font-bold tracking-[0.2em] uppercase mb-6 opacity-80">
+            Prompted by Harshal 2.0
           </span>
-          Built by Harshal
-          <span className="block italic font-light text-foreground/70 mt-2">
-            + An Army of Robots.
+          Harshal's <span className="text-white/40">Infinite</span> Forge
+          <span className="block italic font-light text-accent-secondary/80 mt-6 text-2xl md:text-3xl selection:bg-accent-primary">
+            + An Army of Autonomous Agents.
           </span>
         </h1>
         
-        <p className="mt-8 text-sm md:text-base text-zinc-500 font-mono">
-          // Convincing the AI to behave...
+        <p className="mt-12 text-sm md:text-base text-zinc-500 font-mono tracking-widest uppercase">
+          // Orchestrating the latent space...
         </p>
       </motion.div>
+
     </section>
   );
 }
