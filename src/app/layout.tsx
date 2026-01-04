@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
+import { ScrollMeter } from "@/components/ScrollMeter";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -13,8 +15,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "The Meta-Portfolio",
-  description: "Built by Harshal + An Army of Robots",
+  title: "Prompted by Harshal 2.0 | Meta-Portfolio",
+  description: "Built by Harshal + An Army of Autonomous Agents",
 };
 
 export default function RootLayout({
@@ -27,8 +29,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground`}
       >
+        <ScrollMeter />
         {children}
       </body>
     </html>
   );
 }
+
