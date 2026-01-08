@@ -33,30 +33,31 @@ export function About() {
         {/* Right: Stats */}
         <div className="grid grid-cols-1 gap-6">
             <StatCard 
-              label="Coffee Consumed" 
-              value={412} 
+              label="Projects Orchestrated" 
+              value={42} 
               suffix="" 
               delay={0.2} 
               isInView={isInView}
             />
             <StatCard 
-              label="AI Hallucinations Fixed" 
-              value={84} 
+              label="Agentic Cycles Run" 
+              value={5208} 
               suffix="" 
               delay={0.4} 
-              color="text-orange-400"
+              color="text-accent-primary"
               isInView={isInView}
 
             />
             <StatCard 
-              label="Human Logic" 
+              label="Human Reasoning" 
               value={100} 
               suffix="%" 
               delay={0.6} 
-              color="text-green-400"
+              color="text-accent-secondary"
               isInView={isInView}
             />
         </div>
+
       </div>
     </section>
   );

@@ -1,31 +1,39 @@
 "use client";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Zap, MessageSquare, Rocket, Box, Brain, Terminal } from "lucide-react";
+import { Zap, MessageSquare, Rocket, Box, Brain, Terminal, Cpu, Image as ImageIcon } from "lucide-react";
 import { MouseEvent } from "react";
 
 const tools = [
   {
-    name: "Google Gemini",
-    role: "The Strategist",
-    desc: "My dedicated brainstorming partner. We argue about architecture for hours before I write a single line of code.",
+    name: "Gemini 2.5",
+    role: "The Nexus",
+    desc: "2026 edition. Deeply integrated with my system context for near-perfect reasoning and architecture planning.",
     icon: Brain,
-    color: "from-yellow-400 to-orange-500"
+    color: "from-blue-600 to-indigo-700"
   },
   {
-    name: "Google Antigravity",
-    role: "The Heavy Lifter",
-    desc: "Google's agent-first IDE. I give it a mission, and it manages the agents to build, browse, and test the app autonomously.",
+    name: "Claude Opus 4",
+    role: "The Wordsmith",
+    desc: "My creative partner for UI copy and complex edge-case logic that requires extreme precision.",
+    icon: MessageSquare,
+    color: "from-orange-600 to-red-700"
+  },
+  {
+    name: "Antigravity Dev",
+    role: "The Engine",
+    desc: "The agentic backbone of my workflow. It coordinates multiple coding agents to ship features at light speed.",
     icon: Rocket,
-    color: "from-blue-500 via-red-500 to-yellow-500" 
+    color: "from-accent-primary to-accent-secondary" 
   },
   {
-    name: "VS Code + Copilot",
-    role: "The Tactician",
-    desc: "The daily driver. Perfect for quick logic and autocomplete when I need to take the wheel personally.",
-    icon: Terminal,
-    color: "from-blue-600 to-cyan-500"
+    name: "Flux + MJ v7",
+    role: "The Visionary",
+    desc: "Orchestrating visual assets and layout inspirations before they are translated into React code.",
+    icon: ImageIcon,
+    color: "from-emerald-600 to-teal-700"
   }
 ];
+
 
 export function Arsenal() {
   return (
