@@ -65,13 +65,15 @@ export function ProjectCard({
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      role="button"
+      aria-label={`View project details for ${project.title}`}
       style={{
         transformStyle: "preserve-3d",
         transform,
       }}
       className={cn(
         "relative group block h-80 w-full rounded-2xl bg-zinc-900/40 border border-white/10 overflow-hidden cursor-pointer",
-        "hover:shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-500",
+        "hover:shadow-2xl hover:shadow-accent-primary/20 transition-all duration-500 hover:scale-[1.02]",
         className
       )}
     >
@@ -82,7 +84,7 @@ export function ProjectCard({
           background: useMotionTemplate`
             radial-gradient(
               600px circle at ${mouseX}px ${mouseY}px,
-              rgba(255,255,255,0.1),
+              rgba(59, 130, 246, 0.15),
               transparent 80%
             )
           `,
@@ -91,14 +93,14 @@ export function ProjectCard({
       
       {/* Background Image with Parallax-like feel */}
       <div 
-        className="absolute inset-0 z-0 transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 z-0 transition-transform duration-700 ease-out group-hover:scale-110"
         style={{ transform: "translateZ(-50px)" }} // Push back
       >
         <Image 
           src={project.image} 
-          alt={project.title} 
+          alt={`Visual highlight of ${project.title}`} 
           fill 
-          className="object-cover opacity-50 group-hover:opacity-30 transition-opacity duration-500 grayscale group-hover:grayscale-0" 
+          className="object-cover opacity-50 group-hover:opacity-40 transition-all duration-700 grayscale group-hover:grayscale-0" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
       </div>
@@ -117,18 +119,19 @@ export function ProjectCard({
         <div style={{ transform: "translateZ(75px)" }}> 
           <motion.h3 
             layoutId={`title-${project.id}`}
-            className="text-3xl font-bold text-white font-serif mb-2 group-hover:text-purple-200 transition-colors"
+            className="text-3xl font-bold text-white font-serif mb-2 group-hover:text-accent-primary transition-colors"
           >
             {project.title}
           </motion.h3>
           <motion.p 
-             layoutId={`tagline-${project.id}`}
-             className="text-sm md:text-base text-zinc-300 font-sans font-light italic opacity-90 leading-relaxed border-l-2 border-purple-500/50 pl-3"
+            layoutId={`tagline-${project.id}`}
+             className="text-sm md:text-base text-zinc-300 font-sans font-light italic opacity-90 leading-relaxed border-l-2 border-accent-primary pl-3"
           >
              {project.tagline}
           </motion.p>
         </div>
       </div>
     </motion.div>
+
   );
 }
