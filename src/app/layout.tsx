@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { ScrollMeter } from "@/components/ScrollMeter";
+import { BackgroundFlow } from "@/components/BackgroundFlow";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,8 +31,10 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground`}
       >
         <ScrollMeter />
+        <BackgroundFlow />
         {children}
       </body>
+
     </html>
   );
 }
