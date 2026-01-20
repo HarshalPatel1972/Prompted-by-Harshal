@@ -1,12 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* New 2026 Deep Slate & Obsidian Palette */
-  --background: #000205;
-  --foreground: #f8fafc;
+  /* New 2026 Deep Obsidian & Mesh Palette */
+  --background: #010103;
+  --foreground: #f0f2f5;
   
-  --accent-primary: #3b82f6; /* Electric Blue */
-  --accent-secondary: #fcd34d; /* Soft Gold */
+  --accent-primary: #3b82f6; 
+  --accent-secondary: #ffb444; /* Vivid Amber */
+  
+  --background-mesh: radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                     radial-gradient(circle at 100% 100%, rgba(255, 180, 68, 0.05) 0%, transparent 50%);
   
   --card-bg: rgba(15, 23, 42, 0.4);
   --card-border: rgba(148, 163, 184, 0.1);
@@ -33,10 +36,12 @@
 
 body {
   background: var(--background);
+  background-image: var(--background-mesh);
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
+
 
 /* Base utility for glass effect */
 .glass {
