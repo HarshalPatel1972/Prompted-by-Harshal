@@ -12,8 +12,9 @@ export function ScrollMeter() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1.5 bg-accent-primary z-50 origin-left"
+      className="fixed top-0 left-0 right-0 h-2 bg-gradient-to-r from-accent-primary to-accent-secondary z-[100] origin-left shadow-[0_2px_10px_rgba(59,130,246,0.3)]"
       style={{ scaleX }}
     />
+
   );
 }
