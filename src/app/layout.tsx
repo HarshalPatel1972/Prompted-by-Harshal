@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter_Tight, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { ScrollMeter } from "@/components/ScrollMeter";
 import { BackgroundFlow } from "@/components/BackgroundFlow";
 
-const inter = Inter({
+const inter = Inter_Tight({
   variable: "--font-inter",
   subsets: ["latin"],
 });
