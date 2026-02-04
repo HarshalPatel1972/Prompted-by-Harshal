@@ -49,16 +49,16 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
            />
            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent md:bg-gradient-to-r" />
            
-           <div className="absolute bottom-4 left-4 right-4">
+             <div className="absolute bottom-4 left-4 right-4">
               <motion.h2 
                 layoutId={`title-${project.id}`}
-                className="text-3xl md:text-4xl font-bold font-serif text-white mb-2"
+                className="text-3xl md:text-5xl font-black font-serif text-white mb-2 tracking-tighter"
               >
                 {project.title}
               </motion.h2>
               <motion.p 
                 layoutId={`tagline-${project.id}`}
-                className="text-sm text-zinc-300 font-sans italic opacity-90 border-l-2 border-purple-500 pl-3"
+                className="text-sm md:text-base text-zinc-300 font-sans italic opacity-90 border-l-2 border-accent-primary pl-3"
               >
                 {project.tagline}
               </motion.p>
@@ -66,58 +66,55 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
         </div>
 
         {/* Right Side: Content */}
-        <div className="flex-1 p-6 md:p-8 overflow-y-auto custom-scrollbar bg-zinc-900/95">
+        <div className="flex-1 p-6 md:p-10 overflow-y-auto custom-scrollbar bg-zinc-900/98">
           {/* Description */}
-          <div className="mb-8">
-            <h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-2 font-bold">The Vision</h3>
-            <p className="text-zinc-300 leading-relaxed">
+          <div className="mb-10">
+            <h3 className="text-xs uppercase tracking-[0.3em] text-accent-primary mb-3 font-black">The Vision</h3>
+            <p className="text-zinc-300 leading-relaxed text-lg font-light">
               {project.description}
             </p>
           </div>
 
           {/* Hallucination Box */}
-          <div className="mb-8 p-4 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-200 text-sm">
-             <div className="flex items-center gap-2 mb-2 text-orange-400 font-bold uppercase text-xs tracking-wider">
+          <div className="mb-10 p-5 rounded-2xl bg-accent-secondary/5 border border-accent-secondary/20 text-accent-secondary/90 text-sm leading-relaxed">
+             <div className="flex items-center gap-2 mb-3 text-accent-secondary font-black uppercase text-[10px] tracking-widest">
                <AlertTriangle size={14} />
                Man vs Machine Moment
              </div>
-             <p className="italic">"{project.challenge}"</p>
+             <p className="italic font-medium">"{project.challenge}"</p>
           </div>
 
           {/* Honesty Meter */}
-          <div className="mb-8">
-            <h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-4 font-bold">Honesty Meter</h3>
-            <div className="bg-zinc-800 rounded-full h-4 w-full flex overflow-hidden relative">
+          <div className="mb-10">
+            <h3 className="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-6 font-black">Architecture Stats</h3>
+            <div className="bg-zinc-800/50 rounded-full h-6 w-full flex overflow-hidden relative border border-white/5 shadow-inner">
                <div 
-                 className="h-full bg-purple-500 flex items-center justify-center text-[10px] font-bold text-white relative group"
+                 className="h-full bg-accent-primary flex items-center justify-center text-[10px] font-black text-white relative group transition-all duration-700"
                  style={{ width: `${project.stats.human_percentage}%` }}
                >
-                 <span className="opacity-0 group-hover:opacity-100 absolute transition-opacity">Human {project.stats.human_percentage}%</span>
+                 <span className="opacity-0 group-hover:opacity-100 absolute transition-opacity uppercase tracking-widest whitespace-nowrap">Human Intuition</span>
                </div>
                <div 
-                 className="h-full bg-blue-500 flex items-center justify-center text-[10px] font-bold text-white relative group"
+                 className="h-full bg-zinc-600 flex items-center justify-center text-[10px] font-black text-zinc-300 relative group transition-all duration-700"
                  style={{ width: `${project.stats.ai_percentage}%` }}
                >
-                  <span className="opacity-0 group-hover:opacity-100 absolute transition-opacity">AI {project.stats.ai_percentage}%</span>
+                  <span className="opacity-0 group-hover:opacity-100 absolute transition-opacity uppercase tracking-widest whitespace-nowrap">AI Execution</span>
                </div>
             </div>
-            <div className="flex justify-between text-xs text-zinc-500 mt-2 font-mono">
-               <span>🧠 Strategy: {project.stats.human_percentage}%</span>
-               <span>🤖 Execution: {project.stats.ai_percentage}%</span>
+            <div className="flex justify-between text-[11px] text-zinc-500 mt-4 font-mono uppercase tracking-widest">
+               <span className="flex items-center gap-2"><div className="size-2 rounded-full bg-accent-primary" /> Strategy: {project.stats.human_percentage}%</span>
+               <span className="flex items-center gap-2"><div className="size-2 rounded-full bg-zinc-600" /> Synthesis: {project.stats.ai_percentage}%</span>
             </div>
-             <div className="mt-2 text-xs text-zinc-600">
-               <span className="font-bold text-green-500">{project.stats.hallucinations_fixed}</span> hallucinations fixed manually.
-             </div>
           </div>
 
           {/* Prompt Block */}
-          <div className="mb-8">
-             <h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-2 font-bold flex items-center gap-2">
-               <Terminal size={12} />
-               Key Prompt
+          <div className="mb-10">
+             <h3 className="text-xs uppercase tracking-[0.3em] text-zinc-500 mb-3 font-black flex items-center gap-2">
+               <Terminal size={14} className="text-accent-primary" />
+               Seed Prompt
              </h3>
-             <div className="bg-black/50 p-4 rounded-lg border border-white/5 font-mono text-xs text-green-400 overflow-x-auto">
-               <span className="text-purple-400">user@harshal:~$</span> {project.prompt}
+             <div className="bg-black/80 p-5 rounded-2xl border border-white/5 font-mono text-sm text-green-400 overflow-x-auto shadow-2xl">
+               <span className="text-accent-primary">forge@harshal:~$</span> {project.prompt}
              </div>
           </div>
 
@@ -127,9 +124,9 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                href={project.link} 
                target="_blank" 
                rel="noopener noreferrer"
-               className="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold py-3 px-6 rounded-xl hover:bg-zinc-200 transition-colors"
+               className="flex-1 flex items-center justify-center gap-3 bg-white text-black font-black py-4 px-8 rounded-2xl hover:bg-accent-primary hover:text-white transition-all duration-300 group shadow-lg shadow-white/5"
              >
-               Visit Live Site <ExternalLink size={16} />
+               Explore Forge <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
              </a>
            </div>
 
