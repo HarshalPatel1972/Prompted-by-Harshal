@@ -37,12 +37,16 @@ function DockIcon({ mouseX, icon: Icon, href, label }: { mouseX: MotionValue<num
 
   const widthSync = useTransform(distance, [-150, 0, 150], [45, 85, 45]);
   const width = useSpring(widthSync, { mass: 0.1, stiffness: 200, damping: 20 });
+  
+  // Magnetic pull effect
+  const posXSync = useTransform(distance, [-150, 0, 150], [-10, 0, 10]);
+  const posX = useSpring(posXSync, { mass: 0.1, stiffness: 200, damping: 20 });
 
   return (
     <motion.a
       href={href}
       ref={ref}
-      style={{ width, height: width }}
+      style={{ width, height: width, x: posX }}
       className={cn(
         "aspect-square rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative group backdrop-blur-sm",
         "hover:bg-accent-primary/10 hover:border-accent-primary/50 transition-all duration-300"
@@ -55,3 +59,4 @@ function DockIcon({ mouseX, icon: Icon, href, label }: { mouseX: MotionValue<num
     </motion.a>
   );
 }
+
